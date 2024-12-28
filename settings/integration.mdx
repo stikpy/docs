@@ -1,0 +1,102 @@
+---
+title: 'Stripe Integration'
+description: 'Learn how to integrate AffiliationHub with your Stripe account. Setup takes only 15 minutes!'
+---
+
+# How to Set Up Stripe with AffiliationHub
+
+Learn how to integrate AffiliationHub with your Stripe account and start tracking affiliate sales. We made sure it only takes 15 minutes from start to finish!
+
+## Quick Setup Guide
+
+<Steps>
+  1. **Connect Your Stripe Account**
+     
+     <Note>
+       Navigate to **Program Settings** in your AffiliationHub dashboard to connect your Stripe account.
+     </Note>
+
+     <Card title="Authentication Required" icon="lock">
+       Click the "Connect with Stripe" button to authenticate your account
+     </Card>
+
+  2. **Add the Tracking Script**
+     
+     Add this script to your website's `<head>` section:
+
+     ```html
+     <script 
+       async 
+       src="https://affiliation-three.vercel.app/affiliationhub.js" 
+       data-affiliationhub="YOUR-PUBLIC-ID">
+     </script>
+     ```
+
+     <Note>
+       Find your unique public ID in Account Settings -> Integrations.
+       Add this script to your landing page, or better, to every page to never miss a referral.
+       The script is lightweight (~4KB) and adds a global `affiliationhub` variable to your window object.
+     </Note>
+
+  3. **Implement Referral Tracking**
+     
+     Access referral data in your code:
+
+     ```javascript
+     // Access referral data from the global object
+     const referralId = window.affiliationhub_referral;
+     ```
+
+     <Warning>
+       Always verify the referral object exists before accessing it.
+     </Warning>
+</Steps>
+
+## Stripe Integration Examples
+
+### With Stripe Checkout
+
+```javascript
+const session = await stripe.checkout.sessions.create({
+  success_url: 'https://example.com/success',
+  cancel_url: 'https://example.com/cancel',
+  metadata: { 
+    affiliationhub_referral: req.body.referral 
+  },
+  line_items: [
+    { price: 'price_xxx', quantity: 1 }
+  ],
+  mode: 'subscription',
+});
+```
+
+### With Stripe Subscriptions
+
+```javascript
+const subscription = await stripe.subscriptions.create({
+  customer: 'cus_xxx',
+  metadata: { 
+    affiliationhub_referral: req.body.referral 
+  },
+  items: [
+    { price: 'price_xxx' }
+  ],
+});
+```
+
+<Note>
+  Send the referral ID from client-side to your backend server via params, query, or body, 
+  then include it in Stripe metadata when creating checkout sessions or subscriptions.
+</Note>
+
+## Need Help?
+
+<Card title="Integration Support" icon="headset">
+  We can help you set up Stripe together! Our integration team is available via live chat.
+  
+  [Contact Support](mailto:support@affiliationhub.com)
+</Card>
+
+<Card title="Additional Resources" icon="book">
+  Learn more about implementing referral signups in our [Referral Guide](/guides/referral-implementation)
+</Card>

@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "AffiliationHub",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
@@ -18,14 +18,18 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:support@affiliationhub.com"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://app.affiliationhub.com"
   },
   "tabs": [
+    {
+      "name": "Documentation",
+      "url": "introduction"
+    },
     {
       "name": "API Reference",
       "url": "api-reference"
@@ -35,57 +39,82 @@
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "url": "https://docs.affiliationhub.com"
     },
     {
       "name": "Community",
       "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "url": "https://community.affiliationhub.com"
     },
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://blog.affiliationhub.com"
     }
   ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Getting Started",
       "pages": [
         "introduction",
         "quickstart",
-        "development"
+        "features-overview"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Account Settings",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "settings/account",
+        "settings/subscription",
+        "settings/integration"
       ]
     },
     {
-      "group": "API Documentation",
+      "group": "Core Features",
       "pages": [
-        "api-reference/introduction"
+        "features/dashboard",
+        "features/multi-program",
+        "features/analytics",
+        "features/commission-system"
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Plans & Pricing",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "pricing/affiliaflow",
+        "pricing/affiliapro",
+        "pricing/comparison"
+      ]
+    },
+    {
+      "group": "Integration",
+      "pages": [
+        "integration/stripe-setup",
+        "integration/api-overview",
+        "integration/webhooks",
+        "integration/tracking-script"
+      ]
+    },
+    {
+      "group": "Guides",
+      "pages": [
+        "guides/getting-started",
+        "guides/best-practices",
+        "guides/troubleshooting"
+      ]
+    },
+    {
+      "group": "Support",
+      "pages": [
+        "support/faq",
+        "support/contact",
+        "support/troubleshooting"
       ]
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://linkedin.com/company/mintlify"
+    "twitter": "https://twitter.com/affiliationhub",
+    "github": "https://github.com/affiliationhub",
+    "linkedin": "https://linkedin.com/company/affiliationhub"
   }
 }
